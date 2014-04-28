@@ -13,15 +13,15 @@ buildscript {
   repositories {
     maven {
         url "http://jcenter.bintray.com"
-       //url "http://localhost:8081/artifactory/gradle"
-      credentials {
-        username = "${artifactory_user}"
-        password = "${artifactory_password}"
-      }
+		//url "https://repo.artifactoryonline.com/artifactory"
+		//url "http://localhost:8080/artifactory/gradle-snapshot-local"
     }
-
+	//mavenLocal()
+	
     dependencies {
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.17')
+	  //files('dist/build-info-extractor-2.2.3.jar')
+	  /*files('dist/build-info-extractor-gradle-2.2.2.jar')*/
+      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.3')
     }
   }
 
@@ -87,7 +87,7 @@ configurations {
 
 artifactory {
   //contextUrl = 'http://repo.jfrog.org/artifactory'
-  contextUrl = 'http://repo-demo:8080/artifactory'
+  contextUrl = 'http://localhost:8080/artifactory'
   publish {
     repository {
       repoKey = 'gradle-snapshot-local' //The Artifactory repository key to publish to
@@ -119,7 +119,7 @@ artifactory {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '1.0-milestone-8'
+  gradleVersion = '1.11'
 }
 
 class Version {
