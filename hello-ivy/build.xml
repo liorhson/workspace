@@ -21,6 +21,7 @@
     <property name="lib.dir" value="lib" />
     <property name="build.dir" value="build" />
     <property name="src.dir" value="src" />
+	<property name="jar.file" value="${build.dir}/${ant.project.name}.jar" />
     
     <!-- paths used for compilation and run  -->
     <path id="lib.path.id">
@@ -36,6 +37,7 @@
          ================================= -->
     <target name="resolve" description="--> retreive dependencies with ivy">
         <ivy:retrieve/>
+		<!--<ivy:configure/>-->
     </target>    
     
     <!-- ================================= 
@@ -60,12 +62,23 @@
 	
 	<target name="dist" depends="resolve"
         description="generate the distribution" >
-    <!-- Create the distribution directory -->
-     <!--<mkdir dir="${dist}/lib"/>-->
+		<!-- Create the distribution directory -->
+		<!--<mkdir dir="${dist}/lib"/>-->
 
-    <!-- Put everything in ${build} into the hello-ivy-${DSTAMP}.jar file -->
-    <jar jarfile="${lib.dir}/hello-ivy-${DSTAMP}.jar" basedir="${build.dir}"/>
-  </target>
+		<!-- Put everything in ${build} into the hello-ivy-${DSTAMP}.jar file -->
+		<jar jarfile="${jar.file}" basedir="${build.dir}"/>		
+	</target>	
+	<target name="publish" depends="resolve">
+		<ivy:publish resolver="artifactory-publish">
+		   <!--
+		   Use overwrite="true" if you wish to overwrite existing artifacts
+		   and publishivy="false" if you only want to publish artifacts not module descriptors
+		   -->
+		   <artifacts/>
+		</ivy:publish>
+	</target>
+	
+
 
     <!-- ================================= 
           target: clean              

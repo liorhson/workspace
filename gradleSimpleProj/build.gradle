@@ -1,45 +1,41 @@
-buildscript {
-  repositories {
-    maven {
-        url "http://jcenter.bintray.com"
-       //url "http://localhost:8081/artifactory/gradle"
-      credentials {
-        username = "${artifactory_user}"
-        password = "${artifactory_password}"
-      }
-    }
 
-    dependencies {
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.17')
+buildscript {
+    repositories {
+         jcenter() //this works with Gradle 1.7
+         // maven { url 'http://jcenter.bintray.com' } this works with Gradle 1.6
     }
-  }
+    dependencies {
+        classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.4')
+    }
 }
+
 
 /*def globalVersion = new Version(currentVersion)*/
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'artifactory'
+//apply plugin: 'maven'
+
+apply plugin: 'maven-publish'
+apply plugin: 'artifactory-publish'
 
 sourceCompatibility = 1.7
 version = '1.0'
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
-    }
-}
 
+/*
 repositories {
     mavenCentral()
 }
+*/
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
-test {
-    systemProperties 'property': 'value'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
 }
 
 task sourceJar(type: Jar) {
@@ -55,9 +51,6 @@ configurations {
   published
 }
 
-artifactoryPublish {
-  dependsOn sourceJar, javadocJar
-}
 // Add the sourceJars to non-extractor modules
 artifacts {
   published sourceJar
@@ -65,37 +58,94 @@ artifacts {
 }
 
 
+/******Regular Maven plugin******
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://localhost:8080/artifactory/simple/libs-release-local/"){
+				authentication(userName: "admin", password: "password")
+			}
+			pom.groupId='org.gradle'
+			pom.artifactId='Person'
+			pom.version='2.0'
+        }
+    }
+}
+*/
+
+
+/***********************Maven-publish plugin*****************************/
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			
+			groupId 'org.gradle'
+			artifactId 'Person'
+			version '3.0'
+				
+			/*artifacts {
+			  published sourceJar
+			  published javadocJar
+			}*/		
+		}
+	}
+	
+	repositories {
+		maven {
+			url	"http://localhost:8080/artifactory/simple/libs-release-local/"
+			credentials {
+				username 'admin'
+				password 'password'
+			}	
+		}
+	}
+}
+
+artifactoryPublish {
+        publications(publishing.publications.mavenJava)
+}
 
 
 artifactory {
-  //contextUrl = 'http://repo.jfrog.org/artifactory'
-  contextUrl = 'http://localhost:8080/artifactory'
-  publish {
-    repository {
-      repoKey = 'gradle-snapshot-local' //The Artifactory repository key to publish to
-      username = "${artifactory_user}" //The publisher user name
-      password = "${artifactory_password}" //The publisher password
-      ivy {
-        //Optional section for configuring Ivy publication (when publishIvy = true). Assumes Maven repo layout if If not specified
-        ivyLayout = '[organization]/[module]/ivy-[revision].xml'
-        artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
-        mavenCompatible = false //Convert any dots in an [organization] layout value to path separators, similar to Maven's groupId-to-path conversion. True if not specified
-      }
+    publish {
+        contextUrl = artifactory_contextUrl //The Artifactory server URL, property taken from gradle.properties
+        repository {
+            repoKey = 'libs-release-local' //The Artifactory repository key to publish to
+            username = artifactory_user //The publisher user name, property taken from gradle.properties
+            password = artifactory_password //The publisher password, property taken from gradle.properties
+            ivy {
+                //Optional section for configuring Ivy publication (when publishIvy = true). Assumes Maven repo layout if If not specified
+                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
+                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
+                mavenCompatible = false
+                //Convert any dots in an [organization] layout value to path separators, similar to Maven's groupId-to-path conversion. True if not specified
+            }
+        }
+        defaults {
+            //publishIvy & publishPom are true by default
+            publishArtifacts = true
+            publications('mavenJava')
+            properties = ['build.status': "$it.project.status".toString()]
+           // publishPom = false //Publish generated POM files to Artifactory (true by default)
+           // publishIvy = true //Publish generated Ivy descriptor files to Artifactory (true by default)
+        }
     }
-    defaults {
-      publishConfigs('archives', 'published')
-      properties = ['build.status': "$it.project.status".toString()]
-      publishPom = false //Publish generated POM files to Artifactory (true by default)
-      publishIvy = true //Publish generated Ivy descriptor files to Artifactory (true by default)
-    }
-  }
-  resolve {
-    repository {
-      repoKey = 'libs-release' //The Artifactory (preferably virtual) repository key to resolve from
-      username = "${artifactory_user}" //Optional resolver user name (leave out to use anonymous resolution)
-      password = "${artifactory_password}" //The resolver password
+    resolve {
+        contextUrl = artifactory_contextUrl
+        repository {
+            repoKey = 'remote-repos' //The Artifactory (preferably virtual) repository key to resolve from
+            username = artifactory_user
+            //Optional resolver user name (leave out to use anonymous resolution), property taken from gradle.properties
+            password = artifactory_password //The resolver password, property taken from gradle.properties
 
+        }
     }
-  }
-
 }
+
+
+
+
+
+
+

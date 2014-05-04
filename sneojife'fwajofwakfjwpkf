@@ -1,0 +1,65 @@
+[33mcommit ad66352519a4f458f170c7bdd13f927b0a2e7273[m
+Author: liorha <liorha@jfrog.com>
+Date:   Tue Mar 11 15:10:02 2014 +0200
+
+    ivy proj
+
+[33mcommit 5ed6966e710debaefbd96f9fe3fad01a9b197060[m
+Author: liorha <liorha@jfrog.com>
+Date:   Tue Mar 11 12:27:03 2014 +0200
+
+    gradle run main
+
+[33mcommit c0b8006b1677cce832e7d6adddc6b5f806145df8[m
+Author: liorha <liorha@jfrog.com>
+Date:   Tue Mar 11 11:53:22 2014 +0200
+
+    gradle project
+
+[33mcommit cdd34a363e265a00a03cfaf3d6020c2e8cc0c8ce[m
+Author: liorha <liorha@jfrog.com>
+Date:   Sun Mar 9 14:35:29 2014 +0200
+
+    first
+
+[33mcommit 426c598f1c74ec83f249e74979a1b97f4697071f[m
+Author: lior <liorha@jfrog.com>
+Date:   Sun Mar 9 14:29:10 2014 +0200
+
+    Delete simpleMaven.iml
+
+[33mcommit 0c6a66ed8580cd3c12ff0f106234865fbd8800e1[m
+Author: lior <liorha@jfrog.com>
+Date:   Sun Mar 9 14:29:04 2014 +0200
+
+    Delete pom.xml
+
+[33mcommit 34df6658797ce3660f48ed21eee09eb43c3f14b1[m
+Author: lior <liorha@jfrog.com>
+Date:   Sat Mar 8 18:27:49 2014 +0200
+
+    Delete pom.properties
+
+[33mcommit 01be88f46a3fa55b40a1df8f0e0a62ced4c05c3b[m
+Author: lior <liorha@jfrog.com>
+Date:   Sat Mar 8 18:27:35 2014 +0200
+
+    Delete build-info.json
+
+[33mcommit 18e6cd15a2e10ea8642a1124c408ee5d410aced6[m
+Author: lior <liorha@jfrog.com>
+Date:   Sat Mar 8 18:26:52 2014 +0200
+
+    Delete simpleMaven-1.0-SNAPSHOT.jar
+
+[33mcommit 5797de5da37b8133051ef8fbcc0767af72d861c5[m
+Author: liorha <liorha@jfrog.com>
+Date:   Wed Mar 5 14:50:13 2014 +0200
+
+    readme file
+
+[33mcommit 7709f77fd66c6512f1edbe6a30b7e33b6fe80790[m
+Author: liorha <liorha@jfrog.com>
+Date:   Wed Mar 5 14:41:41 2014 +0200
+
+    first commit

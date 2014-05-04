@@ -1,0 +1,2 @@
+include "common", "batch", "services:user-service", "services:monitor-service","services:services-web"
+

@@ -1,0 +1,12 @@
+*.iml
+*.ipr
+*.iws
+.gradle
+gradle-app.setting
+build
+common/build/
+batch/build/
+services/build/
+services/monitor-service/build/
+services/user-service/build/
+services/services-web/build/

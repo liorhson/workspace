@@ -1,0 +1,30 @@
+
+
+/*
+task intro(dependsOn: 'count') << {
+ println "I'm Gradle"
+}
+
+
+task count << {
+ 4.times { print "$it " }
+}
+*/
+
+
+4.times { counter ->
+ task "task$counter" << {
+ println "I'm task number $counter"
+ }
+}
+task0.dependsOn task2, task3
+
+task hello << {
+	ext.myProperty = "myValue"
+	println 'Hello world!'
+}
+hello.doLast {
+ println "Greetings from the $hello.myProperty task."
+}
+
+

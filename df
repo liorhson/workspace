@@ -1,0 +1,49 @@
+[1mdiff --git a/hello-ivy/build.xml b/hello-ivy/build.xml[m
+[1mindex b95d2f4..647ec6f 100644[m
+[1m--- a/hello-ivy/build.xml[m
+[1m+++ b/hello-ivy/build.xml[m
+[36m@@ -21,6 +21,7 @@[m
+     <property name="lib.dir" value="lib" />[m
+     <property name="build.dir" value="build" />[m
+     <property name="src.dir" value="src" />[m
+[32m+[m	[32m<property name="jar.file" value="${build.dir}/${ant.project.name}.jar" />[m
+     [m
+     <!-- paths used for compilation and run  -->[m
+     <path id="lib.path.id">[m
+[36m@@ -36,6 +37,7 @@[m
+          ================================= -->[m
+     <target name="resolve" description="--> retreive dependencies with ivy">[m
+         <ivy:retrieve/>[m
+[32m+[m		[32m<!--<ivy:configure/>-->[m
+     </target>    [m
+     [m
+     <!-- ================================= [m
+[36m@@ -60,12 +62,23 @@[m
+ 	[m
+ 	<target name="dist" depends="resolve"[m
+         description="generate the distribution" >[m
+[31m-    <!-- Create the distribution directory -->[m
+[31m-     <!--<mkdir dir="${dist}/lib"/>-->[m
+[32m+[m		[32m<!-- Create the distribution directory -->[m
+[32m+[m		[32m<!--<mkdir dir="${dist}/lib"/>-->[m
+[32m+[m
+[32m+[m		[32m<!-- Put everything in ${build} into the hello-ivy-${DSTAMP}.jar file -->[m
+[32m+[m		[32m<jar jarfile="${jar.file}" basedir="${build.dir}"/>[m[41m		[m
+[32m+[m	[32m</target>[m[41m	[m
+[32m+[m	[32m<target name="publish" depends="resolve">[m
+[32m+[m		[32m<ivy:publish resolver="artifactory-publish">[m
+[32m+[m		[32m   <!--[m
+[32m+[m		[32m   Use overwrite="true" if you wish to overwrite existing artifacts[m
+[32m+[m		[32m   and publishivy="false" if you only want to publish artifacts not module descriptors[m
+[32m+[m		[32m   -->[m
+[32m+[m		[32m   <artifacts/>[m
+[32m+[m		[32m</ivy:publish>[m
+[32m+[m	[32m</target>[m
+[32m+[m[41m	[m
+ [m
+[31m-    <!-- Put everything in ${build} into the hello-ivy-${DSTAMP}.jar file -->[m
+[31m-    <jar jarfile="${lib.dir}/hello-ivy-${DSTAMP}.jar" basedir="${build.dir}"/>[m
+[31m-  </target>[m
+ [m
+     <!-- ================================= [m
+           target: clean              [m

@@ -1,0 +1,18 @@
+
+apply plugin: 'java'
+
+dependencies{
+  compile group:'commons-dbcp',name:'commons-dbcp',version:'1.2.2'
+  compile project(':common')
+}
+
+test {
+    systemProperties 'propFromGradle': 'Batch Module'
+}
+
+clean <<{
+  println "added to clean"
+}
+
+
+
