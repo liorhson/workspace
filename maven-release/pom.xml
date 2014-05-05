@@ -25,12 +25,13 @@
 	</scm>
   
 	<distributionManagement>
-		<snapshotRepository>
-			<id>artifact</id>
-			<name>artifact-snapshots</name>
-			<url>file://${project.build.directory}/mvn-repo</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <snapshotRepository>
+        <id>artifact</id>
+        <name>artifact-snapshots</name>
+        <url>http://localhost:8080/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
+
 
 		
     <dependencies>
