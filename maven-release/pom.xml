@@ -28,7 +28,7 @@
 		<repository>
 			<id>artifact</id>
 			<name>artifact-releases</name>
-			<url>http://localhost:8080/artifactory/libs-release-local</url>
+			<url>file://${project.build.directory}/mvn-repo</url>
 		</repository>
 	</distributionManagement>
 
