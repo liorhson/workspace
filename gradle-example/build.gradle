@@ -19,13 +19,9 @@ buildscript {
 	//mavenLocal()
 	
     dependencies {
-<<<<<<< HEAD
 	  //files('dist/build-info-extractor-2.2.3.jar')
 	  /*files('dist/build-info-extractor-gradle-2.2.2.jar')*/
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.3')
-=======
       classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.4')
->>>>>>> e44cf946b9721da60375b18ffacec91f31ea8f2e
     }
   }
 
