@@ -21,7 +21,7 @@ buildscript {
     dependencies {
 	  //files('dist/build-info-extractor-2.2.3.jar')
 	  /*files('dist/build-info-extractor-gradle-2.2.2.jar')*/
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.4')
+      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.x-SNAPSHOT')
     }
   }
 
