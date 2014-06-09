@@ -12,9 +12,9 @@
 buildscript {
   repositories {
     maven {
-        url "http://jcenter.bintray.com"
+        //url "http://jcenter.bintray.com"
 		//url "https://repo.artifactoryonline.com/artifactory"
-		//url "http://localhost:8080/artifactory/gradle-snapshot-local"
+		url "http://10.0.0.252:8080/artifactory/gradle-snapshot-local"
     }
 	//mavenLocal()
 	
