@@ -120,7 +120,7 @@ artifactory {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '1.11'
+  gradleVersion = '2.0-rc-1'
 }
 
 class Version {
