@@ -1,0 +1,7 @@
+-classpath 'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\classes\\main;C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\resources\\main'
+-d 'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\docs\\javadoc'
+-doctitle 'shared 1.0-20140611140748 API'
+-quiet 
+-windowtitle 'shared 1.0-20140611140748 API'
+'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\src\\main\\java\\org\\gradle\\shared\\package-info.java'
+'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\src\\main\\java\\org\\gradle\\shared\\Person.java'

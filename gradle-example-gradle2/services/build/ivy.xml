@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+  <info organisation="org.jfrog.example.gradle" module="services" revision="1.0-20140611140748" status="integration" publication="20140611170754">
+    <description/>
+  </info>
+  <configurations>
+    <conf name="archives" visibility="public" description="Configuration for archive artifacts."/>
+    <conf name="default" visibility="public" description="Configuration for default artifacts."/>
+  </configurations>
+  <publications/>
+</ivy-module>
