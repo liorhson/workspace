@@ -1,7 +1,7 @@
--classpath 'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\classes\\main;C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\resources\\main'
--d 'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\build\\docs\\javadoc'
--doctitle 'shared 1.0-20140611140748 API'
+-classpath 'C:\\Work\\JFrogDev-fork\\project-examples\\gradle-example-gradle2\\shared\\build\\classes\\main;C:\\Work\\JFrogDev-fork\\project-examples\\gradle-example-gradle2\\shared\\build\\resources\\main'
+-d 'C:\\Work\\JFrogDev-fork\\project-examples\\gradle-example-gradle2\\shared\\build\\docs\\javadoc'
+-doctitle 'shared 1.0-20140713121729 API'
 -quiet 
--windowtitle 'shared 1.0-20140611140748 API'
-'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\src\\main\\java\\org\\gradle\\shared\\package-info.java'
-'C:\\Users\\liorh\\.jenkins\\jobs\\gradleSimpleProj\\workspace\\gradle-example\\shared\\src\\main\\java\\org\\gradle\\shared\\Person.java'
+-windowtitle 'shared 1.0-20140713121729 API'
+'C:\\Work\\JFrogDev-fork\\project-examples\\gradle-example-gradle2\\shared\\src\\main\\java\\org\\gradle\\shared\\package-info.java'
+'C:\\Work\\JFrogDev-fork\\project-examples\\gradle-example-gradle2\\shared\\src\\main\\java\\org\\gradle\\shared\\Person.java'

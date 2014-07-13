@@ -10,21 +10,17 @@
 */
 
 buildscript {
-  repositories {
-   // maven {
-        //url "http://jcenter.bintray.com"
-		//url "https://repo.artifactoryonline.com/artifactory"
-	//	url "http://10.0.0.252:8080/artifactory/gradle-snapshot-local"
-    //}
-	mavenLocal()
-	
-    dependencies {
-	  //files('dist/build-info-extractor-2.2.3.jar')
-	  /*files('dist/build-info-extractor-gradle-2.2.2.jar')*/
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.x-SNAPSHOT')
-    }
-  }
-
+            repositories {
+			maven{
+			url "http://repo.jfrog.org/artifactory/gradle"
+			//url "http://localhost:8081/artifactory/gradle"
+			//url "http://localhost:8080/artifactory/gradle-snapshot-local"
+			}
+			mavenLocal()
+            dependencies {
+                classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '3.0.0')
+            }
+         }
 }
 
 import java.text.DateFormat
@@ -33,8 +29,7 @@ import java.text.SimpleDateFormat
 def globalVersion = new Version(currentVersion)
 
 allprojects {
-  apply plugin: 'artifactory'
-  //apply plugin: 'com.jfrog.artifactory'
+  apply plugin: 'com.jfrog.artifactory'
   apply plugin: 'idea'
   configure(subprojects.findAll { new File(it.projectDir, 'src').directory }) {
     apply plugin: 'java'
@@ -91,8 +86,7 @@ configurations {
 
 artifactory {
   //contextUrl = 'http://repo.jfrog.org/artifactory'
-  //contextUrl = 'http://localhost:8080/artifactory'
-  contextUrl = 'http://10.0.0.252:8080/artifactory'
+  contextUrl = 'http://localhost:8080/artifactory'
   publish {
     repository {
       repoKey = 'gradle-snapshot-local' //The Artifactory repository key to publish to
@@ -124,7 +118,7 @@ artifactory {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.0-rc-1'
+  gradleVersion = '2.0'
 }
 
 class Version {

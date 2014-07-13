@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.gradle.webservice.TestTestTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-06-11T07:06:18" hostname="lior" time="0.051">
+<testsuite name="org.gradle.webservice.TestTestTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-06-15T07:02:37" hostname="lior" time="0.053">
   <properties/>
-  <testcase name="testClasspath" classname="org.gradle.webservice.TestTestTest" time="0.05"/>
+  <testcase name="testClasspath" classname="org.gradle.webservice.TestTestTest" time="0.052"/>
   <testcase name="testApiCompileClasspath" classname="org.gradle.webservice.TestTestTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
