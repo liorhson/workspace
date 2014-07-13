@@ -11,17 +11,17 @@
 
 buildscript {
   repositories {
-   // maven {
-        //url "http://jcenter.bintray.com"
+    maven {
+        url "http://jcenter.bintray.com"
 		//url "https://repo.artifactoryonline.com/artifactory"
 	//	url "http://10.0.0.252:8080/artifactory/gradle-snapshot-local"
-    //}
+    }
 	mavenLocal()
 	
     dependencies {
 	  //files('dist/build-info-extractor-2.2.3.jar')
 	  /*files('dist/build-info-extractor-gradle-2.2.2.jar')*/
-      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.x-SNAPSHOT')
+      classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.2.5')
     }
   }
 
