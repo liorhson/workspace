@@ -1,0 +1,3 @@
+[submodule "project-examples"]
+	path = project-examples
+	url = git@github.com:liorhson/project-examples.git
