@@ -9,13 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryDemo.DAL", "Arti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryDemo.Services", "ArtifactoryDemo.Services\ArtifactoryDemo.Services.csproj", "{439B963D-59BC-4BC3-A89E-0EAD2BD2D64E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48A2A621-A7A6-44E0-89DA-30ED67E1F937}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".artifactory", ".artifactory", "{B11BC4A6-4417-4257-922B-05317973A8A5}"
 	ProjectSection(SolutionItems) = preProject
 		.artifactory\Artifactory.build = .artifactory\Artifactory.build
